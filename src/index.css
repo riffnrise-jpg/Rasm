@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-900 text-ivory-100 font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94, 18, 32, 0.45), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 100% 100%, rgba(212, 175, 55, 0.08), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 0% 80%, rgba(94, 18, 32, 0.2), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.3);
+    color: #fdfaf4;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #14090a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8f6f1f, #5e1220);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #d4af37, #7d1a2c);
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(120deg, #f3d98c 0%, #d4af37 40%, #fdf8ec 60%, #b8932a 100%);
+    background-size: 200% auto;
+  }
+
+  .text-shimmer {
+    @apply text-gradient-gold animate-shimmer;
+  }
+
+  .ornate-border {
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 1rem;
+  }
+  .ornate-border::before,
+  .ornate-border::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    pointer-events: none;
+  }
+  .ornate-border::before {
+    top: -1px;
+    left: -1px;
+    border-right: 0;
+    border-bottom: 0;
+    border-top-left-radius: 1rem;
+  }
+  .ornate-border::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: 0;
+    border-top: 0;
+    border-bottom-right-radius: 1rem;
+  }
+
+  .btn-gold {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 font-sans font-medium tracking-wide text-ink-900 transition-all duration-500;
+    background-image: linear-gradient(120deg, #f3d98c, #d4af37 50%, #b8932a);
+    box-shadow: 0 0 30px -10px rgba(212, 175, 55, 0.6);
+  }
+  .btn-gold:hover {
+    box-shadow: 0 0 60px -8px rgba(212, 175, 55, 0.9);
+    transform: translateY(-1px);
+  }
+  .btn-gold:active {
+    transform: translateY(0);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-gold-400/40 px-6 py-3 font-sans text-gold-200 transition-all duration-300 hover:border-gold-300 hover:bg-gold-400/10 hover:text-gold-100;
+  }
+
+  .field-underline {
+    @apply relative;
+  }
+  .field-underline input,
+  .field-underline textarea {
+    @apply w-full bg-transparent py-3 text-ivory-100 placeholder-ivory-300/40 outline-none;
+  }
+  .field-underline .underline-bar {
+    @apply absolute bottom-0 left-0 h-px w-full bg-ivory-300/20;
+  }
+  .field-underline .underline-fill {
+    @apply absolute bottom-0 left-0 h-px bg-gold-400 transition-all duration-500;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}

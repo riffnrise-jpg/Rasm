@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/api/generate-haldi", "destination": "/api/generate-haldi" },
+    { "source": "/api/generate-sangeet", "destination": "/api/generate-sangeet" },
+    { "source": "/api/generate-mehandi", "destination": "/api/generate-mehandi" },
+    { "source": "/api/generate-baraat", "destination": "/api/generate-baraat" },
+    { "source": "/api/generate-reception", "destination": "/api/generate-reception" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
