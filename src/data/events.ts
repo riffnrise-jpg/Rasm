@@ -1,6 +1,6 @@
 export type EventKey = 'haldi' | 'sangeet' | 'mehandi' | 'baraat' | 'reception';
 
-export type Screen = 'landing' | 'events' | 'details' | 'generating' | 'result';
+export type Screen = 'landing' | 'events' | 'details' | 'templates' | 'editor';
 
 export interface InvitationDetails {
   brideName: string;

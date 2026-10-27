@@ -23,7 +23,7 @@ export function corsPreflight() {
   return new Response(null, { status: 200, headers: corsHeaders });
 }
 
-export function jsonResponse(body: unknown, status = 200) {
+export function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
     headers: { 'Content-Type': 'application/json', ...corsHeaders },

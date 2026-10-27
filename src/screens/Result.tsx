@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download, RotateCcw, Volume2, VolumeX, AlertCircle, Sparkles } from 'lucide-react';
 import { type EventConfig } from '@/data/events';

@@ -37,7 +37,6 @@ export default function DetailIntake({ event, onSubmit, onBack }: DetailIntakePr
 
   const isReview = step >= TOTAL;
   const current = FIELDS[step];
-  const progress = Math.min(step, TOTAL) / TOTAL;
 
   const validate = (key: FieldKey, value: string): string => {
     if (!value.trim()) return 'This field is part of the story — please fill it in.';
@@ -106,7 +105,7 @@ export default function DetailIntake({ event, onSubmit, onBack }: DetailIntakePr
       </div>
 
       {/* Progress vine */}
-      <ProgressVine progress={progress} accent={event.hex} total={TOTAL} step={step} />
+      <ProgressVine accent={event.hex} total={TOTAL} step={step} />
 
       <div className="relative mt-12 flex flex-1 flex-col">
         <AnimatePresence mode="wait">
@@ -206,12 +205,10 @@ export default function DetailIntake({ event, onSubmit, onBack }: DetailIntakePr
 }
 
 function ProgressVine({
-  progress,
   accent,
   total,
   step,
 }: {
-  progress: number;
   accent: string;
   total: number;
   step: number;
@@ -373,7 +370,7 @@ function ReviewCard({
           style={{ backgroundImage: `linear-gradient(120deg, ${event.hexLight}, ${event.hex} 50%, ${event.hexDeep})` }}
         >
           <Check className="h-4 w-4" />
-          Generate My Film
+          Show Me The Templates
         </button>
       </motion.div>
     </motion.div>
